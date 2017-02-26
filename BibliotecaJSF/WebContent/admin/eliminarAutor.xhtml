@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:loadBundle basename="resources.application" var="msg" />
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+	<ui:define name="contenido">
+		<h:messages styleClass="messages" globalOnly="true" layout="table"
+			infoClass="info"></h:messages>
+		<div id="EliminarAutor">
+			<h:form id="formEliminarAutor">
+				<fieldset>
+					<legend>Buscar Autor</legend>
+					<h:panelGrid columns="2" border="0">
+						<h:outputText value="Busqueda"></h:outputText>
+						<h:inputText value="#{backingAutor.iniciales}"></h:inputText>
+						<h:outputText id="o1" value=""></h:outputText>
+						<h:commandButton value="Buscar"
+							action="#{backingAutor.busquedaAutor}"></h:commandButton>
+					</h:panelGrid>
+				</fieldset>
+				<h:outputText render="formEliminarAutor" rendered="#{backingAutor.listadoAutores!=null and backingAutor.totalAutoresEliminar==0}" value="No existen coincidencias"></h:outputText>
+			</h:form>
+		</div>
+		<div id="AutoresBusqueda">
+			<h:form id="formAutoresBusqueda"
+				rendered="#{backingAutor.totalAutoresEliminar>0}">
+				<h:panelGrid columns="1" border="1">
+					<f:facet name="header">
+						<h:outputText id="o2" value="Elige un autor para eliminar"></h:outputText>
+					</f:facet>
+					<h:selectOneMenu value="#{backingAutor.idautorBorrar}"
+						layout="pageDirection" styleClass="tabla">
+						<f:selectItems value="#{backingAutor.listadoAutores}" var="autor"
+							itemLabel="#{autor.nombre}" itemValue="#{autor.idautor}"></f:selectItems>
+					</h:selectOneMenu>
+					<h:commandButton
+						onclick="javaScript: if(confirm('Confirmar eliminacion registro seleccionado')) {return true;} else {return false;}"
+						action="#{backingAutor.eliminarAutor}" value="Eliminar"></h:commandButton>
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>

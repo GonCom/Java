@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:loadBundle basename="resources.application" var="msg" />
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+	<ui:define name="contenido">
+		<h:messages id="messages" globalOnly="true" layout="table"
+			errorClass="advertencia" infoClass="info">
+		</h:messages>
+		<h:form id="formListadoSocios"
+			rendered="#{backingSocio.paginacion.itemsCount>0}">
+			<div id="navegacion">
+				<h:outputText
+					value="Mostrando desde el #{backingSocio.paginacion.primerElemento} hasta el #{backingSocio.paginacion.ultimoElemento}"></h:outputText>
+				<h:commandLink value="Anterior"
+					rendered="#{backingSocio.paginacion.hayPaginaAnterior}">
+					<f:ajax listener="#{backingSocio.PaginaAnterior}"
+						render="formListadoSocios"></f:ajax>
+				</h:commandLink>
+				&nbsp;
+				<h:commandLink value="Siguiente"
+					rendered="#{backingSocio.paginacion.hayPaginaSiguiente}">
+					<f:ajax render="formListadoSocios"
+						listener="#{backingSocio.PaginaSiguiente}"></f:ajax>
+				</h:commandLink>
+				<h:selectOneMenu id="selectReg" value="#{backingSocio.regPag}">
+					<f:selectItem itemLabel="5" itemValue="5"></f:selectItem>
+					<f:selectItem itemLabel="10" itemValue="10"></f:selectItem>
+					<f:selectItem itemLabel="15" itemValue="15"></f:selectItem>
+					<f:selectItem itemLabel="20" itemValue="20"></f:selectItem>
+					<f:ajax listener="#{backingSocio.resetPaginacion}"
+						render="formListadoSocios">
+					</f:ajax>
+				</h:selectOneMenu>
+
+			</div>
+			<h:dataTable id="d1" var="socio" value="#{backingSocio.socios}"
+				border="1" rowClasses="impar,par" width="800"
+				headerClass="cabeceraTabla">
+				<f:facet name="header">
+					<h:outputText value="Listado de socios"></h:outputText>
+				</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Idsocio"></h:outputText>
+					</f:facet>
+					<h:outputText id="idsocio" value="#{socio.idsocio}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"></h:outputText>
+					</f:facet>
+					<h:outputText id="nombre" value="#{socio.nombre}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Direccion"></h:outputText>
+					</f:facet>
+					<h:outputText id="direccion" value="#{socio.direccion}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText id="editar" value="Editar"></h:outputText>
+					</f:facet>
+					<h:commandLink id="c1" action="#{backingSocio.editarSocio}"
+						value="#{msg['pagina.buscarSocio.enlace']}">
+						<f:param name="pagina" value="/admin/listadosocios.xhtml"></f:param>
+						<f:setPropertyActionListener
+							target="#{backingSocio.socioseleccionado}" value="#{socio}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
