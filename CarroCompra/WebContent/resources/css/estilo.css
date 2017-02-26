@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-image: url("../img/fondo.jpg");
+}
+
+#contenedor{
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+}
+#header {
+	background-image: url(../img/cabecera.jpg);
+	background-size: 800px 175px;
+	height: 175px;
+	width: 800px;
+}
+#compra{
+	top: 100px;
+	left: 300px;
+}
+#tabla caption {
+	background: #45797E;
+	border: 2px solid;
+}
+
+#tabla th {
+	background: #9ADAE0;
+}
+#Buscador {
+	margin: 50px;
+	padding: 30px;
+}
+
+#Buscador form table {
+	margin-left: 180px;
+}
+
