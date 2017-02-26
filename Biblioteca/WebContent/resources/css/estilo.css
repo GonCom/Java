@@ -1,0 +1,68 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background: url("../img/fondo.jpg");
+}
+
+#container {
+	background: rgba(147,206,222,1);
+background: -moz-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(147,206,222,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(73,165,191,1)));
+background: -webkit-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+background: -o-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+background: -ms-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=1 );
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+}
+
+#container #menu {
+	font-size: 16px;
+	width: 650px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+	margin-bottom: 55px;
+}
+
+#header {
+	background-image: url(../img/logo.jpg);
+	height: 175px;
+	width: 800px;
+}
+
+#tabla caption {
+	background: blue;
+	border: 2px solid;
+}
+
+#tabla th {
+	background: #B18904;
+}
+
+#darAlta {
+	border: 1px solid #CCC;
+	padding: .5 0 1em;
+}
+
+#Buscador {
+	margin: 50px;
+	padding: 30px;
+}
+
+#Buscador form table {
+	margin-left: 180px;
+}
+
+#datosAutor {
+	background: url("/Biblioteca/resources/img/logo.gif") no-repeat;
+}
+
+#paginacion {
+	padding: 5px;
+	margin: 10px;
+}

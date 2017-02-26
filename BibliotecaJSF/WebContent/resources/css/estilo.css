@@ -1,0 +1,109 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: #DBC493;
+	margin-top: 0px;
+}
+
+#header {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 1154px;
+}
+
+#logo {
+	margin-top: 0px;
+	position: relative;
+}
+
+#menu {
+	position: relative;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 640px;
+}
+
+#contenido {
+	position: relative;
+	top: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #C5B26D;
+	width: 800px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	margin-bottom: 50px;
+}
+
+.messages{
+	height:58px;
+}
+
+.info td {
+	background: url('imagenes/Information.gif') no-repeat left center;
+	padding-left: 55px;
+	font-size: 24px;
+	color:blue;
+}
+
+#EditarSocioSeleccionado,#buscarSocio,#altaAutor,#EliminarAutor,
+#AutoresBusqueda,#buscarLibro{
+	padding: 20px;
+	width: 500px;
+	margin-left: 130px;
+}
+
+.advertencia{
+	color: red;
+	font-size: 16px;
+}
+
+.impar{
+	background: #F7D358;	
+}
+
+.par{
+	background: #8A4B08;
+	color: white;
+}
+
+.botonVolver{
+	float: left;
+}
+
+.cabeceraTabla{
+	background: #8A2908;
+	color: white;
+	margin-top: 20px;
+}
+
+#formmorosos{
+	margin-bottom: 40px;
+}
+
+#AutoresBusqueda,#listaEjemplares{
+	margin-top: 20px;
+	margin-left: 200px;
+}
+#fila{
+	font-size: 18px;
+	text-align: center;
+}
+#fila:nth-child(even){
+	background: #F7D358;
+}
+#fila:nth-child(odd){
+	background: #8A4B08;
+	color: white;
+}
+.informacion{
+	color:#8A2908;
+}
+.centrada{
+	text-align: center;
+}
