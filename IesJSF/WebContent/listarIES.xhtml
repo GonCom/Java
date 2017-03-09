@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+	
+	<ui:define name="contenido">
+		<h:messages styleClass="messages" globalOnly="true" layout="table"
+					infoClass="info"></h:messages>
+		<h:form id="formIes">
+			<h:selectOneMenu id="selectInstituto" value="#{backingOferta.idies}">
+				<f:selectItem itemLabel="Seleccione IES"></f:selectItem>
+				<f:selectItems value="#{backingIES.listadoIes}" var="ies"
+				itemLabel="#{ies.nombre}" itemValue="#{ies.idies}">
+				</f:selectItems>
+				<f:ajax listener="#{backingOferta.mostrarOfertasEducativas}"
+					render="@form"></f:ajax> 
+			</h:selectOneMenu>
+
+			<h:dataTable var="oferta" id="ofertasEdu"
+				value="#{backingOferta.listadoOfertas}" rendered="#{backingOferta.totalItemsOferta>0}" border="1"
+				rowClasses="impar,par" headerClass="cabeceraTabla" styleClass="tabla">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ciclo"></h:outputText>
+					</f:facet>
+					<h:outputText id="ciclo" value="#{oferta.ciclo.nombre}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Turno"></h:outputText>
+					</f:facet>
+					<h:outputText id="turno" value="#{oferta.turno.descripcion}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Plazas"></h:outputText>
+					</f:facet>
+					<h:outputText id="plazas" value="#{oferta.plazas}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink value="Editar"
+						action="#{backingOferta.editarOfertaEduc}">
+						<f:param name="pagina" value="listarIES.xhtml"></f:param>
+						<f:setPropertyActionListener target="#{backingOferta.oferta}"
+							value="#{oferta}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<h:commandLink value="Eliminar"
+						onclick="javaScript: if(confirm('Confirmar eliminacion registro seleccionado')) {return true;} else {return false;}"
+						action="#{backingOferta.eliminarOfertaEduc}">
+						<f:setPropertyActionListener
+							target="#{backingOferta.ofertaEliminar}" value="#{oferta}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+				
+			</h:dataTable >
+			<h:form id="f1">
+				<h:panelGroup rendered="#{backingOferta.totalItemsOferta>0}">
+					<h:commandButton value="Añadir oferta" action="#{backingOferta.añadirOferta}">
+						<f:param name="pagina2" value="listarIES.xhtml"></f:param>
+					</h:commandButton>
+				</h:panelGroup>
+			</h:form>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

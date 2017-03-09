@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+	<ui:define name="contenido">
+		
+		<h:form id="formNuevaOferta" styleClass="formulario">
+			<fieldset>
+			<legend>Añadir Oferta Educativa</legend>
+			<h:panelGrid  columns="2" border="0" >
+				<h:outputText value="Ciclo"></h:outputText>
+				<h:selectOneMenu id="selectCiclo" value="#{backingOferta.nuevaOferta.idciclo}">
+					<f:selectItem itemValue="Seleccione un ciclo"></f:selectItem>
+					<f:selectItems var="ciclo" value="#{backingOferta.listadoCiclos}"
+					itemLabel="#{ciclo.nombre}" itemValue="#{ciclo.idciclo}"></f:selectItems>
+				</h:selectOneMenu>
+				<h:outputText value="Turno"></h:outputText>
+				<h:selectOneMenu id="selectTurno" value="#{backingOferta.nuevaOferta.turno}">
+					<f:selectItem itemValue="Seleccione un turno"></f:selectItem>
+					<f:selectItems value="#{backingOferta.turnos}" var="turno"
+					itemLabel="#{turno.descripcion}" itemValue="#{turno.idturno}"></f:selectItems>
+				</h:selectOneMenu>
+				<h:outputText value="Plazas"></h:outputText>
+				<h:inputText id="plazas" value="#{backingOferta.plazas}"></h:inputText>
+				<h:commandButton value="Añadir" action="#{backingOferta.darAltaOferta}"></h:commandButton>
+				<h:commandButton value="Cancelar" action="#{backingOferta.volverAtras}"></h:commandButton>
+			</h:panelGrid>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

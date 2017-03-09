@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+	<ui:define name="contenido">
+		<h:form id="formEditarOferta" styleClass="formulario">
+			<fieldset>
+			<legend>Editar</legend>
+			<h:outputText value="Modificar las plazas de la siguiente plaza del IES #{backingOferta.oferta.IES.nombre}"></h:outputText>
+			<h:panelGrid columns="2" border="0">
+				<h:outputText value="Ciclo"></h:outputText>
+				<h:inputText disabled="true" value="#{backingOferta.oferta.ciclo.nombre}"></h:inputText>
+				<h:outputText value="Turno"></h:outputText>
+				<h:inputText  disabled="true" value="#{backingOferta.oferta.turno.descripcion}"></h:inputText>
+				<h:outputText value="Plazas"></h:outputText>
+				<h:inputText value="#{backingOferta.oferta.plazas}"></h:inputText>
+				<h:commandButton value="Modificar Plazas" action="#{backingOferta.modificarPlazas}"></h:commandButton>
+				<h:commandButton value="Cancelar" action="#{backingOferta.volverAtras}"></h:commandButton>
+			</h:panelGrid>
+			</fieldset>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>
