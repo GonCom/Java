@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+	
+	<ui:define name="contenido">
+		<h:form id="formListadoActos">
+		
+			<h:dataTable id="d1" var="tarifa" styleClass="tabla"
+				value="#{backingCompania.compania.tarifas}" border="1" rowClasses="impar,par" headerClass="cabeceraTabla">
+				<f:facet name="header">
+					<h:outputText  value="Compañia: #{backingCompania.compania.nombre}"></h:outputText>
+				</f:facet>
+				<h:column id="c1">
+				<f:facet name="header">
+					<h:outputText value="Acto Medico"></h:outputText>
+				</f:facet>
+					<h:outputText id="precio" value="#{tarifa.actomedico.descripcion}"></h:outputText>
+				</h:column>
+				<h:column id="c2">
+				<f:facet name="header">
+					<h:outputText value="Precio"></h:outputText>
+				</f:facet>
+					<h:outputText id="o2" value="#{tarifa.precio}"></h:outputText>
+				</h:column>
+				<h:column id="c3">
+					<h:commandLink id="c4" value="Editar" action="#{backingTarifa.preparareditarPrecio}">
+						<f:setPropertyActionListener target="#{backingTarifa.tarifa}" value="#{tarifa}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

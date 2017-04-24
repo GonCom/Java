@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+	
+	<ui:define name="contenido">
+		<h:form id="formEditarActo">
+			<fieldset>
+			<legend>Modifique tarifa Compañia: #{backingTarifa.tarifa.compania.nombre}</legend>
+			<h:panelGrid columns="2" border="0">
+				<h:outputText  value="Acto Medico"></h:outputText>
+				<h:inputText id="acto"  disabled="true" value="#{backingTarifa.tarifa.actomedico.descripcion}"></h:inputText>
+				<h:outputText value="Precio"></h:outputText>
+				<h:inputText id="precio" value="#{backingTarifa.tarifa.precio}"></h:inputText>
+				<h:commandButton value="Modificar" action="#{backingTarifa.modificarTarifa}"></h:commandButton>
+			</h:panelGrid>
+			</fieldset>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

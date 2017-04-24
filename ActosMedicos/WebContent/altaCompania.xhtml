@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+	
+	<ui:define name="contenido">
+		<h:form id="formAltaComp">
+			<fieldset>
+			<legend>Nueva Compañia</legend>
+			<h:panelGrid columns="2" border="0" >
+				<h:outputText id="o1" value="Cif:"></h:outputText>
+				<h:inputText id="cif" value="#{backingCompania.companiaNueva.cif}"></h:inputText>
+				<h:outputText id="o2" value="Nombre:"></h:outputText>
+				<h:inputText id="nombre"
+					value="#{backingCompania.companiaNueva.nombre}"></h:inputText>
+			</h:panelGrid>
+			</fieldset>
+			<h:panelGrid id="p1" columns="1" border="1"  styleClass="tabla">
+			<h:selectManyCheckbox id="selectActos" value="#{backingCompania.idActosMed}" layout="pageDirection">
+					<f:selectItem itemLabel="Todos"></f:selectItem>
+					<f:selectItems id="s1" value="#{backingCompania.listadoActos}" var="acto"
+				itemLabel="#{acto.descripcion}" itemValue="#{acto.codigo}"></f:selectItems>
+			</h:selectManyCheckbox>
+			
+			</h:panelGrid>
+			<h:commandButton id="boton" value="Alta" action="#{backingCompania.darAltaCompania}"></h:commandButton>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

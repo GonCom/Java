@@ -1,0 +1,71 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background: #FFFF99;
+	margin-top: 0px;
+}
+
+#header {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 1154px;
+}
+
+#logo {
+	margin-top: 0px;
+	position: relative;
+}
+
+#menu {
+	position: relative;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 640px;
+}
+
+#contenido {
+	position: relative;
+	top: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFCC66;
+	width: 800px;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	margin-bottom: 50px;
+}
+
+.impar{
+	background: #F7D358;	
+}
+
+.par{
+	background: #8A4B08;
+	color: white;
+}
+
+.cabeceraTabla{
+	background: #8A2908;
+	color: white;
+	margin-top: 20px;
+}
+
+#formAltaComp{
+	wdith: 500px;	
+}
+
+fieldset{
+	width: 500px;
+	margin-left: 100px;
+}
+
+.tabla{
+	text-align: left;
+	margin-left: 180px;
+	margin-top: 30px;
+}
