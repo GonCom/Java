@@ -1,0 +1,10 @@
+Requisitos de la aplicación.
+---------Facil--------------------------------
+-Listado clientes
+-Editar, añdir y eliminar cliente.
+-Información acerca del cliente y su empresa
+-Botón con información acerca de sus documentos.
+-Enviar un correo al cliente con JMS
+-------Dificil--------------------------------
+-Poder firmar los documentos con firma digital.(No se puede hacer de momento)
+-Poder calcular las nominas de los empleados.No existe api, hay que programarlo desde cero.

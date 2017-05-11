@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Listado Clientes</title>
+</h:head>
+<h:body>
+
+	<header>
+	<div align="center">
+		<h3>LISTADO CLIENTES</h3>
+	</div>
+	</header>
+
+	<h:form id="formListadoClientes">
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-2"><p:commandButton value="Nuevo cliente"
+						styleClass="ui-priority-primary" /></div>
+			<div class="ui-g-12 ui-md-10 ui-g-nopad">
+				<div class="ui-g-12 ui-g-nopad">
+					<div class="ui-g">
+						<p:dataTable var="cliente"
+							value="#{backingCliente.listadoclientes}">
+							<p:column headerText="Nombre">
+								<h:outputText value="#{cliente.nombre}" />
+							</p:column>
+
+							<p:column headerText="Apellido">
+								<h:outputText value="#{cliente.apellido}" />
+							</p:column>
+
+							<p:column headerText="Editar">
+								<h:commandLink value="Editar"
+									action="#{backingModificar.editarCliente}">
+									<f:param name="pagina" value="clientes.xhtml"></f:param>
+									<f:setPropertyActionListener
+										target="#{backingModificar.idcliente}" value="#{cliente}"></f:setPropertyActionListener>
+								</h:commandLink>
+							</p:column>
+
+							<p:column headerText="Información">
+								<p:commandButton value="Información"
+									styleClass="ui-priority-primary" />
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+			</div>
+			<div align="center" class="ui-g-12">Aplicación creada por GonCom</div>
+		</div>
+	</h:form>
+</h:body>
+</html>
